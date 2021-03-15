@@ -1,0 +1,33 @@
+NAME : fri26.opt.tour
+COMMENT : optimal tour for fri26 (937)
+TYPE : TOUR
+DIMENSION : 26
+TOUR_SECTION
+0
+24
+23
+22
+25
+21
+20
+16
+17
+19
+18
+15
+10
+11
+12
+14
+13
+9
+8
+7
+6
+4
+5
+3
+2
+1
+-1
+EOF
