@@ -24,7 +24,7 @@ Após criar o ambiente, o ative:
 
 E por fim, instale os pacotes necessários para rodar os algoritmos:
 
-```pip install -r src/requirements.txt```
+```pip install -r requirements.txt```
 
 
 # Rodando algoritmos
