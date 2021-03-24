@@ -1,5 +1,5 @@
 # GRASP- VNS
-Código desenvolvido para a terceira avaliação da Disciplina **IMD1105 – METAHEURÍSTICAS** do Curso de Bacharelado em Tecnologia da Informação da UFRN.
+Código desenvolvido para a Disciplina **IMD1105 – METAHEURÍSTICAS** do Curso de Bacharelado em Tecnologia da Informação da UFRN.
 
 Ministrada no semestre 2020.2 pelo professor: *Antonino Alves Feitosa Neto*
 
@@ -29,11 +29,23 @@ E por fim, instale os pacotes necessários para rodar os algoritmos:
 
 # Rodando algoritmos
 
-Para rodar os algoritmos, utilize o seguinte comando:
+Para rodar os algoritmos no grafo de teste, utilize o seguinte comando:
+```python src/Teste.py```
 
-```python src\Instancias_TSPlib.py seed tempo processos arquivo_saida.csv```
+Para rodar o algoritmo VNS nas n menores intâncias das 30 selecionadas, utilize o seguinte comando:
+```python src/RunVNS.py qtd_instancias seed tempo processos arquivo_saida.csv```
+
+Para rodar o algoritmo GRASP nas n menores intâncias das 30 selecionadas, utilize o seguinte comando:
+```python src/RunGRASP.py qtd_instancias seed tempo processos arquivo_saida.csv```
+
+Para rodar o algoritmo genético nas n menores intâncias das 30 selecionadas, utilize o seguinte comando:
+```python src/RunGenetic.py qtd_instancias seed tempo processos arquivo_saida.csv```
+
+Para automaticamente identificar o melhor algoritmo, dados os arquivos de saida, utilize o seguinte comando:
+```python src/RunGetBest.py qtd_instancias arquivo_entrada_1.csv arquivo_entrada_2.csv arquivo_entrada_3.csv arquivo_saida.csv```
 
 Onde:
+* ```qtd_instancias``` é a quantidade de instancias que serão avaliadas, partindo da menor instancia.
 * ```seed``` é a semente para gerar os números pseudo-aleatórios.
 * ```tempo``` é o tempo máximo em minutos que um algoritmo pode executar em uma das instâncias.
 * ```processos``` é a quantidade de processos que serão criados para executar cada algorimo nas instancias, buscando paralelizar a execução dos mesmo, se possivel.
