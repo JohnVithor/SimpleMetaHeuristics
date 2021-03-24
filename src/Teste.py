@@ -6,8 +6,11 @@ from LocalSearch import LocalSearch
 from GreedSearch import GreedSearch
 from VNS import VariableNeighborhoodSearch
 from GRASP import GRASP
+from Genetic import Genetic
 
 seed = 0
+max_exec_time_per_run_in_minutes = 1
+max_exec_time_per_run_in_seconds = 60.0 * max_exec_time_per_run_in_minutes
 
 if __name__== "__main__" :
     Problem.files_path = ''
@@ -45,13 +48,18 @@ if __name__== "__main__" :
     print('greed tour cost:', problem.evaluate(greed_tour)) 
 
     vns = VariableNeighborhoodSearch(problem, None, seed)
-    vns_tour, step, last_update = vns.run(3, 100, 10)
+    vns_tour, step, last_update = vns.run(3, 100, 10, max_exec_time_per_run_in_seconds, greed_tour)
     print('vns tour cost:', problem.evaluate(vns_tour))
     print('total steps', step)
     print('last update', last_update)
 
     grasp = GRASP(problem, None, seed)
-    grasp_tour, step, last_update = grasp.run(0.1, 2, 100, 50)
+    grasp_tour, step, last_update = grasp.run(0.0, 2, 100, 50, 5, max_exec_time_per_run_in_seconds, greed_tour)
     print('grasp tour cost:', problem.evaluate(grasp_tour))
     print('total steps', step)
     print('last update', last_update)
+
+    genetic = Genetic(problem, seed)
+    genetic_tour, step = genetic.run(2, 0.8, 0.1, 50, 100, max_exec_time_per_run_in_seconds, greed_tour)
+    print('genetic tour cost:', problem.evaluate(genetic_tour))
+    print('total steps', step)
