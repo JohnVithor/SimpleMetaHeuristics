@@ -5,16 +5,44 @@ from LocalSearch import LocalSearch
 import time
 
 class GRASP:
-  def __init__(self, problem:Problem, searcher:LocalSearch = None, seed:int=0):
+  """
+  Greedy Randomized Adaptative Search Procedure (GRASP)
+  Esta classe implementa uma metaheuristica para o Problema do Caixeiro Viajante
+
+  Atributos
+    ----------
+    name : str
+        first name of the person
+    surname : str
+        family name of the person
+    age : int
+        age of the person
+
+  Métodos
+    -------
+    info(additional=""):
+        Prints the person's name and age.
+
+  """
+  def __init__(self, problem: Problem, searcher: LocalSearch = None, seed: int=0):
+    """
+    Construtor da classe GRASP, aqui são informados a instancia do problema do caixeiro 
+    viajante a ser utilizada e opcionalmente qual o objeto de Busca Local e semente de 
+    geração de números aleátorios que serão usadas.
+
+    Caso nenhum objeto de Busca Local seja especificado, é criado um LocalSeacher simples
+    para ser utilizado.
+
+    :param problem: Problem
+    :param searcher: LocalSearch = None
+    :param seed: int = 0
+    """
     self.problem = problem
     self.local_search = searcher
-    self.frequent_links = {}
-    self.links = {}
     if searcher is None:
       self.local_search = LocalSearch(self.problem)
     self.original_seed = seed
     self.seed = seed
-    random.seed(self.original_seed)
   
 
   def run(self, alpha:float=0.1, k:int=2, max_steps:int=100, no_update:int=50, start_incr:int=10, max_time:float=60.0, start_solve:Solve = None) -> Solve:
