@@ -7,8 +7,25 @@ import networkx as nx
 from Solve import Solve
 
 class Problem:
-  tour_files_suffix = '.opt.tour'
+  """
+  A classe Problem modela uma instância do Problema do Caixeiro Viajante
+  
+  Esta classe além de encapsular a 
 
+  Atributos
+    ----------
+    size : int
+      O Tamanho da solução
+    cost : float
+      O Custo da solução
+    tour : list[int]
+      Uma lista de inteiros com tamanho 'size' armazenando a ordem de visitação 
+      dos nós (cidades) no problema.
+  """
+
+  files_path = ""
+  tour_files_suffix = '.opt.tour'
+  
   def __init__(self, instance_name:str, file_type:str='.tsp'):
     self.instance_name = instance_name
 
