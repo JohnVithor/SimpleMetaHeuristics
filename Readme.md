@@ -33,7 +33,9 @@ Para rodar os algoritmos no grafo de teste, utilize o seguinte comando:
 ```python src/Teste.py```
 
 Para rodar o algoritmo VNS nas n menores intâncias das 30 selecionadas, utilize o seguinte comando:
-```python src/RunVNS.py qtd_instancias seed tempo processos arquivo_saida.csv```
+```python src/RunVNS.py qtd_instancias seed tamanho_vizinhança máximo_iterações máximo_iterações_sem_atualização tempo_máximo processos arquivo_saida.csv```
+Exemplo:
+```python src/RunVNS.py 17 42 4 500 250 2 10 vns_resultados.csv```
 
 Para rodar o algoritmo GRASP nas n menores intâncias das 30 selecionadas, utilize o seguinte comando:
 ```python src/RunGRASP.py qtd_instancias seed tempo processos arquivo_saida.csv```

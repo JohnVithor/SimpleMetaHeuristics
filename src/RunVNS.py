@@ -35,10 +35,13 @@ def simple_vns_run(args):
 
 if __name__== '__main__' :
 
-  if len(sys.argv) != 6:
+  if len(sys.argv) != 9:
     print("É necessario informar:")
     print("A quantidade de instancias a serem avaliadas")
     print("A seed para gerar os números aleatorios")
+    print("O tamanho da vizinhança a ser considerada")
+    print("O número máximo de iterações do algoritmo")
+    print("O número máximo de iterações do algoritmo sem atualização")
     print("O tempo máximo de execução de cada algoritmo em uma instancia, em minutos")
     print("O número máximo de execuções que podem rodar em paralelo")
     print("O nome do arquivo de saida com os resultados dos algoritmos")
@@ -50,10 +53,13 @@ if __name__== '__main__' :
 
   qtd_instancias = int(sys.argv[1])
   seed = int(sys.argv[2])
-  max_exec_time_per_run_in_minutes = float(sys.argv[3])
+  k_neighborhood = int(sys.argv[3])
+  max_iterations = int(sys.argv[4])
+  max_iterations_without_update = int(sys.argv[5])
+  max_exec_time_per_run_in_minutes = float(sys.argv[6])
   max_exec_time_per_run_in_seconds = 60.0 * max_exec_time_per_run_in_minutes
-  n_cores = int(sys.argv[4])
-  result_file_name = sys.argv[5]
+  n_cores = int(sys.argv[7])
+  result_file_name = sys.argv[8]
 
 
   ### Load instance list ###
@@ -74,7 +80,7 @@ if __name__== '__main__' :
   # get the end time of loading the instances
   end_time = time.time()
   # get the name and size of the last instance
-  print(problems[-1].instance_name, problems.[-1].size)
+  print(problems[-1].instance_name, problems[-1].size)
   # print the time to load the instances
   print('Total time to load the instances: ', end_time-start_time, 'seconds')
 
@@ -100,7 +106,7 @@ if __name__== '__main__' :
 
   reversed_problems = list(reversed(problems))
   reversed_greed_solves = list(reversed(greeds_tours))
-  vns_inputs = [(problem, 4, 500, 250, max_exec_time_per_run_in_seconds, reversed_greed_solves[i]) for i, problem in enumerate(reversed_problems)]
+  vns_inputs = [(problem, k_neighborhood, max_iterations, max_iterations_without_update, max_exec_time_per_run_in_seconds, reversed_greed_solves[i]) for i, problem in enumerate(reversed_problems)]
   vns = []
 
   start_time = time.time()
