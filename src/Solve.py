@@ -1,10 +1,35 @@
 import copy
 
 class Solve:
+  """
+  Solve é uma Solução para uma instância do Problema do Caixeiro Viajante (Problem)
+  
+  Esta classe além de encapsular o vetor com o percurso-solução de uma instância
+  do problema, armazena o custo da solução e implementa algumas funções 
+  utilitárias para auxiliar na manipulação dessas soluções.
+
+  Atributos
+    ----------
+    size : int
+      O Tamanho da solução
+    cost : float
+      O Custo da solução
+    tour : list[int]
+      Uma lista de inteiros com tamanho 'size' armazenando a ordem de visitação 
+      dos nós (cidades) no problema.
+  """
   def __init__(self, size:int, tour = None):
+    """
+    Construtor de uma Solução (Solve)
+    Precisa obrigatoriamente que seja informado um tamanho para a solução, o 
+    tamanho do percurso-solução e opcionalmente o percurso em si
+
+    :parâmetro size: int
+    :parâmetro size: list[int] = None
+    """
     self.size : int = size
-    self.cost : int = -1
-    self.tour : [0]*self.size
+    self.cost : float = -1
+    self.tour : list(int) = [0] * self.size
     if tour != None:
       if len(tour) != self.size:
         raise NameError(f'Tour of a different size!: Expected size = {self.size} and actual size = {len(tour)}') 
@@ -31,7 +56,7 @@ class Solve:
   def __eq__(self, other):
     return self.size == other.size and tuple(self.tour) == tuple(other.tour)
 
-  def circular_equal(self, other):
+  def circular_equal(self, other) -> bool:
     if self.size != other.size:
       return False
 
