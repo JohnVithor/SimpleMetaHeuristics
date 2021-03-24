@@ -48,7 +48,7 @@ class Solve:
     return Solve(copy.deepcopy(self.size), copy.deepcopy(self.tour))
 
   def __str__(self):
-    return f'Solve of tour {self.tour}'
+    return f'{self.tour}'
 
   def __repr__(self):
     return f'{self.tour}'
