@@ -35,10 +35,15 @@ def simple_grasp_run(args):
 
 if __name__== '__main__' :
 
-  if len(sys.argv) != 6:
+  if len(sys.argv) != 11:
     print("É necessario informar:")
     print("A quantidade de instancias a serem avaliadas")
     print("A seed para gerar os números aleatorios")
+    print("O Alpha que especifica a probabilidade de escolha de escolhas diferentes da ideal localmente")
+    print("O tamanho da vizinhança a ser considerada")
+    print("O número máximo de iterações do algoritmo")
+    print("O número máximo de iterações do algoritmo sem atualização")
+    print("O número de iterações sem atualização antes do algoritmo incrementar o Alpha")
     print("O tempo máximo de execução de cada algoritmo em uma instancia, em minutos")
     print("O número máximo de execuções que podem rodar em paralelo")
     print("O nome do arquivo de saida com os resultados dos algoritmos")
@@ -50,10 +55,15 @@ if __name__== '__main__' :
 
   qtd_instancias = int(sys.argv[1])
   seed = int(sys.argv[2])
-  max_exec_time_per_run_in_minutes = float(sys.argv[3])
+  alpha = float(sys.argv[3])
+  k_neighborhood = int(sys.argv[4])
+  max_iterations = int(sys.argv[5])
+  max_iterations_without_update = int(sys.argv[6])
+  iterations_without_update_before_increment = int(sys.argv[7])
+  max_exec_time_per_run_in_minutes = float(sys.argv[8])
   max_exec_time_per_run_in_seconds = 60.0 * max_exec_time_per_run_in_minutes
-  n_cores = int(sys.argv[4])
-  result_file_name = sys.argv[5]
+  n_cores = int(sys.argv[9])
+  result_file_name = sys.argv[10]
 
 
   ### Load instance list ###
@@ -100,7 +110,7 @@ if __name__== '__main__' :
 
   reversed_problems = list(reversed(problems))
   reversed_greed_solves = list(reversed(greeds_tours))
-  grasp_inputs = [(problem, 0.0, 3, 1000, 500, 10, max_exec_time_per_run_in_seconds, reversed_greed_solves[i]) for i, problem in enumerate(reversed_problems)]
+  grasp_inputs = [(problem, alpha, k_neighborhood, max_iterations, max_iterations_without_update, iterations_without_update_before_increment, max_exec_time_per_run_in_seconds, reversed_greed_solves[i]) for i, problem in enumerate(reversed_problems)]
   grasp = []
 
   start_time = time.time()

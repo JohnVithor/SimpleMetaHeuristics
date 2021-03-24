@@ -30,20 +30,31 @@ E por fim, instale os pacotes necessários para rodar os algoritmos:
 # Rodando algoritmos
 
 Para rodar os algoritmos no grafo de teste, utilize o seguinte comando:
+
 ```python src/Teste.py```
 
 Para rodar o algoritmo VNS nas n menores intâncias das 30 selecionadas, utilize o seguinte comando:
+
 ```python src/RunVNS.py qtd_instancias seed tamanho_vizinhança máximo_iterações máximo_iterações_sem_atualização tempo_máximo processos arquivo_saida.csv```
+
 Exemplo:
-```python src/RunVNS.py 17 42 4 500 250 2 10 vns_resultados.csv```
+
+```python src/RunVNS.py 17 42 4 500 250 0.1 10 vns.csv```
 
 Para rodar o algoritmo GRASP nas n menores intâncias das 30 selecionadas, utilize o seguinte comando:
+
 ```python src/RunGRASP.py qtd_instancias seed tempo processos arquivo_saida.csv```
 
+Exemplo:
+
+```python src/RunGRASP.py 17 42 0.0 3 1000 500 10 0.1 10 grasp.csv```
+
 Para rodar o algoritmo genético nas n menores intâncias das 30 selecionadas, utilize o seguinte comando:
+
 ```python src/RunGenetic.py qtd_instancias seed tempo processos arquivo_saida.csv```
 
 Para automaticamente identificar o melhor algoritmo, dados os arquivos de saida, utilize o seguinte comando:
+
 ```python src/RunGetBest.py qtd_instancias arquivo_entrada_1.csv arquivo_entrada_2.csv arquivo_entrada_3.csv arquivo_saida.csv```
 
 Onde:
