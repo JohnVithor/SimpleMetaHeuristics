@@ -57,7 +57,7 @@ class Genetic:
       self.best_solve : Solve = self.generate_random_solve(size*epochs)
     
     population : list(Solve) = [self.generate_random_solve(size*epochs) for i in range(size-1)]
-    population.append(best_solve)
+    population.append(self.best_solve)
 
     step = 0
     initial_time = time.time()

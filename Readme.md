@@ -51,7 +51,11 @@ Exemplo:
 
 Para rodar o algoritmo genético nas n menores intâncias das 30 selecionadas, utilize o seguinte comando:
 
-```python src/RunGenetic.py qtd_instancias seed tempo processos arquivo_saida.csv```
+```python src/RunGenetic.py qtd_instancias seed tamanho_torneio taxa_cruzamento taxa_mutação tamanho_população quantidade_epocas tempo processos arquivo_saida.csv```
+
+Exemplo:
+
+```python src/RunGenetic.py 17 42 10 0.8 0.1 500 2500 0.1 10 genetic.csv```
 
 Para automaticamente identificar o melhor algoritmo, dados os arquivos de saida, utilize o seguinte comando:
 
