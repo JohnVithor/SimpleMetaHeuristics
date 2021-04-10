@@ -1,0 +1,21 @@
+{
+    "contest_size": [
+        2
+    ],
+    "cross_rate": [
+        0.9
+    ],
+    "mutate_rate": [
+        0.05
+    ],
+    "size": [
+        10,
+        11
+    ],
+    "epochs": [
+        100
+    ],
+    "max_time": [
+        60
+    ]
+}
