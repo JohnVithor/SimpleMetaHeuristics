@@ -1,0 +1,18 @@
+Nome,Tamanho,Melhor custo conhecido,Best,Cost
+burma14,14,,vns.csv,3323.0
+ulysses16,16,6859.0,genetic.csv,6859.0
+gr17,17,,vns.csv,2085.0
+gr21,21,,genetic.csv,2707.0
+ulysses22,22,7013.0,genetic.csv,7087.0
+gr24,24,1276.0,genetic.csv,1323.0
+fri26,26,937.0,grasp.csv,937.0
+bayg29,29,1610.0,genetic.csv,1610.0
+bays29,29,2020.0,genetic.csv,2036.0
+dantzig42,42,,genetic.csv,734.0
+swiss42,42,,genetic.csv,1273.0
+att48,48,10628.0,genetic.csv,10921.0
+gr48,48,5046.0,genetic.csv,5207.0
+hk48,48,,genetic.csv,11929.0
+eil51,51,426.0,genetic.csv,437.0
+berlin52,52,7542.0,grasp.csv,8156.0
+brazil58,58,25395.0,genetic.csv,26803.0
