@@ -18,7 +18,7 @@ class Solve:
       Uma lista de inteiros com tamanho 'size' armazenando a ordem de visitação 
       dos nós (cidades) no problema.
   """
-  def __init__(self, size:int, tour = None):
+  def __init__(self, size:int, tour=None, cost:float=-1):
     """
     Construtor de uma Solução (Solve)
     Precisa obrigatoriamente que seja informado um tamanho para a solução, o 
@@ -28,7 +28,7 @@ class Solve:
     :parâmetro size: list[int] = None
     """
     self.size : int = size
-    self.cost : float = -1
+    self.cost : float = cost
     self.tour : list(int) = [0] * self.size
     if tour != None:
       if len(tour) != self.size:
@@ -39,19 +39,19 @@ class Solve:
     return self.copy()
 
   def copy(self):
-    return Solve(copy.copy(self.size), copy.copy(self.tour))
+    return Solve(copy.copy(self.size), copy.copy(self.tour), copy.copy(self.cost))
 
   def __deepcopy__(self, memo : dict = {}):
     return self.deepcopy()
 
   def deepcopy(self, memo : dict = {}):
-    return Solve(copy.deepcopy(self.size), copy.deepcopy(self.tour))
+    return Solve(copy.deepcopy(self.size), copy.deepcopy(self.tour), copy.deepcopy(self.cost))
 
   def __str__(self):
-    return f'{self.tour}'
+    return f'{self.cost}'
 
   def __repr__(self):
-    return f'{self.tour}'
+    return f'{self.cost}'
 
   def __eq__(self, other):
     return self.size == other.size and tuple(self.tour) == tuple(other.tour)

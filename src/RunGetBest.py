@@ -41,8 +41,10 @@ if __name__== '__main__' :
   cost = [s for s in file_results.columns if sub_cost in s]
   costs_time_id = list(zip(file_results[cost[0]], [0]*number_of_instances, ["Greed Search"]*number_of_instances))
   costs_time_ids.append(costs_time_id)
+  
   total_data['Nome'] = file_results["Nome"]
   total_data['Tamanho'] = file_results["Tamanho"]
+  total_data['Melhor custo conhecido'] = file_results["Melhor custo conhecido"]
 
   ### Compare results ###
 

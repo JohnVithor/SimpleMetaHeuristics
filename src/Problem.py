@@ -34,7 +34,7 @@ class Problem:
       self.nx_graph = self.instance.get_graph()
       try:
         self.tour = tsplib95.load(Problem.files_path+self.instance_name+Problem.tour_files_suffix)
-        self.opt_cost = self.instance.trace_tours(self.tour.tours)
+        self.opt_cost = self.instance.trace_tours(self.tour.tours)[0]
         self.opt_tour = self.tour.tours[0]
       except:
         self.tour = None
@@ -51,6 +51,8 @@ class Problem:
     self.instance = None
     self.tour = None
     self.size = self.distance_matrix.shape[0]
+    if self.instance_name == "brazil58":
+      self.opt_cost = 25395
 
   def evaluate(self, solve : Solve) -> float:
     if self.instance is not None:
@@ -77,6 +79,7 @@ class Problem:
     tour = list(range(1,self.size+1))
     random.shuffle(tour)
     solve = Solve(self.size, tour)
+    self.evaluate(solve)
     return solve
 
     
