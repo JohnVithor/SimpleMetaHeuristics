@@ -1,4 +1,4 @@
-# GRASP- VNS
+# SimpleMetaHeuristics
 Código desenvolvido para a Disciplina **IMD1105 – METAHEURÍSTICAS** do Curso de Bacharelado em Tecnologia da Informação da UFRN.
 
 Ministrada no semestre 2020.2 pelo professor: *Antonino Alves Feitosa Neto*
